@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Modelagem</title>
+<link rel="stylesheet" href="modelagem.css">
+<style>
+    body {
+        font-family: Arial, sans-serif;
+    }
+</style>
+</head>
+<body>
+
+    <header>
+        <img src="Sem título-1.png" alt="Logo da Simulação Industrial" class="logo">
+        <h1>MODELAGEM INDUSTRIAL</h1>
+      </header>
+
+
+
+<h2>Média de Produção / Semana</h2>
+
+<label for="nota1">Primeiro dia:</label>
+<input type="number" id="nota1" placeholder="primeiro dia" required><br><br>
+
+<label for="nota2">Segundo dia:</label>
+<input type="number" id="nota2" placeholder="segundo dia" required><br><br>
+
+<label for="nota3">Terceiro dia:</label>
+<input type="number" id="nota3" placeholder="terceiro dia" required><br><br>
+
+<label for="nota4">Quarto dia:</label>
+<input type="number" id="nota4" placeholder="quarto dia" required><br><br>
+
+<label for="nota5">Quinto dia:</label>
+<input type="number" id="nota5" placeholder="ultimo dia " required><br><br>
+
+<button onclick="calcularMedia()">Calcular Média</button><br><br>
+
+<p>A média é: <span id="resultado"></span></p>
+
+<script>
+    function calcularMedia() {
+        var nota1 = parseFloat(document.getElementById('nota1').value);
+        var nota2 = parseFloat(document.getElementById('nota2').value);
+        var nota3 = parseFloat(document.getElementById('nota3').value);
+        var nota4 = parseFloat(document.getElementById('nota4').value);
+        var nota5 = parseFloat(document.getElementById('nota5').value);
+
+        var media = (nota1 + nota2 + nota3) / 3;
+        
+        document.getElementById('resultado').textContent = media.toFixed(2);
+    }
+</script>
+
+
+  <h2>Calculadora de Peças / minuto</h2>
+
+<label for="numProdutos">Número de Peças:</label>
+<input type="number" id="numProdutos" value=""><br><br>
+
+<label for="numMinutos">Número de Minutos:</label>
+<input type="number" id="numMinutos" value=""><br><br>
+
+<button onclick="calcularProducao()">Calcular</button>
+
+<p id="resultadoCP"></p>
+
+<script>
+function calcularProducao() {
+    var numProdutos = parseInt(document.getElementById('numProdutos').value);
+    var numMinutos = parseInt(document.getElementById('numMinutos').value);
+
+    var produtosPorMinuto = numProdutos / numMinutos;
+
+    document.getElementById('resultadoCP').innerHTML = "Por minuto, " + produtosPorMinuto.toFixed(2) + " produtos são feitos.";
+}
+</script>
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Controle de Qualidade</title>
+  <link rel="stylesheet" href="modelagem.css">
+</head>
+<body>
+
+    <h2>Controle de Qualidade</h2>
+
+<form id="formularioProduto">
+  <label for="nomeProduto">Nome do Produto:</label>
+  <input type="text" id="nomeProduto" name="nomeProduto" required>
+
+  <label for="descricaoProduto">Descrição do Produto:</label>
+  <textarea id="descricaoProduto" name="descricaoProduto" required></textarea>
+
+  <label for="loteProduto">Lote do Produto:</label>
+  <input type="number" id="loteProduto" name="loteProduto" required>
+
+  <label for="quantidadeProduto">Quantidade:</label>
+  <input type="number" id="quantidadeProduto" name="quantidadeProduto" required>
+
+  <label for="statusProduto">Status:</label>
+  <select id="statusProduto" name="statusProduto" required>
+    <option value="aprovado">Aprovado</option>
+    <option value="reprovado">Reprovado</option>
+  </select>
+
+  <button type="submit">Adicionar Produto</button>
+</form>
+
+<ul id="registrosLocalStorage"></ul>
+  
+
+</body>
+</html>
+<footer>
+    <p>ProgramaçãoWeb 2024 - Pedro Henrique e Railan Santos</p>
+  </footer>
+  <script src="modelagem.js"></script>
+</body>
+</html>
